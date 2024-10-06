@@ -56,6 +56,7 @@ class CountryViewSet(viewsets.ModelViewSet):
     # queryset = models.Country.objects.all()
     serializer_class = serializers.CountrySerializer
     permission_classes = (IsAdminOrReadOnly,)
+    authentication_classes = (TokenAuthentication,)
 
     def get_queryset(self):
         pk = self.kwargs.get("pk")
@@ -69,6 +70,7 @@ class ProducerViewSet(viewsets.ModelViewSet):
     # queryset = models.Country.objects.all()
     serializer_class = serializers.ProducerSerializer
     permission_classes = (IsAdminOrReadOnly,)
+    authentication_classes = (TokenAuthentication,)
 
     def get_queryset(self):
         pk = self.kwargs.get("pk")

@@ -17,7 +17,7 @@ services:
     # Берем Dockerfile из каталога
     build: .
     # Запускаем тестовый сервер
-    command: python manage.py runserver localhost:8000
+    command: python manage.py runserver 0.0.0.0:8000
     # Куда будут помещены данные из каталога carReviews
     volumes:
       - .:/carReviews
