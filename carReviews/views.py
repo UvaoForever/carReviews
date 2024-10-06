@@ -108,7 +108,7 @@ class CommentViewSet(viewsets.ModelViewSet):
 # Экспорт стран
 def parsing_countries(request):
     countries = models.Country.objects.all()
-    file_format = request.GET.get('format', 'csv')  # По умолчанию экспортация в CSV
+    file_format = request.GET.get('format', 'csv')  # По умолчанию экспорт в CSV
 
     if file_format == 'xlsx':
         response = HttpResponse(content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; charset=windows-1251')
@@ -141,7 +141,7 @@ def parsing_countries(request):
 def parsing_producers(request):
     producers = models.Producer.objects.all()
 
-    file_format = request.GET.get('format', 'csv')  # По умолчанию экспортация в CSV
+    file_format = request.GET.get('format', 'csv')  # По умолчанию экспорт в CSV
 
     if file_format == 'xlsx':
         response = HttpResponse(
@@ -174,7 +174,7 @@ def parsing_producers(request):
 def parsing_autos(request):
     autos = models.Auto.objects.all()
 
-    file_format = request.GET.get('format', 'csv')  # По умолчанию экспортация в CSV
+    file_format = request.GET.get('format', 'csv')  # По умолчанию экспорт в CSV
 
     if file_format == 'xlsx':
         response = HttpResponse(
@@ -207,7 +207,7 @@ def parsing_autos(request):
 def parsing_comments(request):
     comments = models.Comment.objects.all()
 
-    file_format = request.GET.get('format', 'csv')  # По умолчанию экспортация в CSV
+    file_format = request.GET.get('format', 'csv')  # По умолчанию экспорт в CSV
 
     if file_format == 'xlsx':
         response = HttpResponse(

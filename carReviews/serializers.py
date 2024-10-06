@@ -30,7 +30,7 @@ class ProducerSerializer(serializers.ModelSerializer):
 
     def to_representation(self, instance):
         representation = super().to_representation(instance)
-        # Убираем autos из сериализованных данных производителей
+        # Убираем comments из сериализованных данных производителей
         for auto in representation['autos']:
             auto.pop('comments', None)  # Убираем поле 'comments', если оно есть
 
