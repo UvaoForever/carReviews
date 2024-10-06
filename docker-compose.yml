@@ -1,0 +1,33 @@
+services:
+  db:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: 5432
+      DJANGO_SETTINGS_MODULE: carReviews.settings
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  car-reviews-backend:
+    container_name: car-reviews-backend
+    # Берем Dockerfile из каталога
+    build: .
+    # Запускаем тестовый сервер
+    command: python manage.py runserver localhost:8000
+    # Куда будут помещены данные из каталога carReviews
+    volumes:
+      - .:/carReviews
+    # Открываем порт 8000 внутри и снаружи
+    ports:
+      - "8000:8000"
+    environment:
+      # jdbc:postgresql://localhost:5432/postgres
+      DATABASE_URL: jdbc:postgresql://localhost:5432/postgres
+    depends_on:
+      - db
+volumes:
+     postgres_data:

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <title>Титульная страница</title>
+    <script src="{% static "scripts/script.js" %}"></script>
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="{% static "scripts/add_comment_script.js" %}"></script>
+</head>
+<body>
+
+    <header>
+	    <nav class="top-menu">
+	      	<ul class="menu-main">
+	    	    <li><a href="#">Показать таблицу...</a>
+	    		    <ul class="submenu">
+	    		    	<li><a href="#TableCountry">Страна</a></li>
+	    		    	<li><a href="#TableProducer">Производитель</a></li>
+                        <li><a href="#TableAuto">Автомобиль</a></li>
+                        <li><a href="#TableComment">Комментарий</a></li>
+	    		    </ul>
+	    	    </li>
+	    	    <li><a href="#RowInsert">Добавить строку</a></li>
+	    	    <li><a href="#RowUpdate">Изменить строку</a></li>
+	    	    <li><a href="#RowDelete">Удалить строку</a></li>
+            </ul>
+	    </nav>
+	</header>
+    
+    <section>
+	    <table id = "TableCountry" class="table">
+	    	<caption>Страна</caption>
+	    	<tr>
+	    		<th id = "countryId">id</th>
+	    		<th id = "countryName">Имя</th>
+	    	</tr>
+            {% for country in countries %}
+	    	    <tr>
+	    		    <td>{{ country.id }}</td>
+	    		    <td>{{ country.name }}</td>
+	    	    </tr>
+            {% endfor %}
+	    </table>
+	</section>
+
+    <section>
+		<table id = "TableProducer" class="table">
+			<caption>Производитель</caption>
+			<tr>
+				<th id = "producerId">id</th>
+				<th id = "producerName">Имя</th>
+                <th id = "producerCountryName">Страна</th>
+			</tr>
+            {% for producer in producers %}
+			    <tr>
+				    <td>{{ producer.id }}</td>
+				    <td>{{ producer.name }}</td>
+                    <td>{{ producer.country.name }}</td>
+			    </tr>
+            {% endfor %}
+		</table>
+	</section>
+
+    <section>
+		<table id = "TableAuto" class="table">
+			<caption>Автомобиль</caption>
+			<tr>
+				<th id = "autoId">id</th>
+                <th id = "autoName">Имя</th>
+				<th id = "autoProducer">Производитель</th>
+                <th id = "autoStart">Год начала выпуска</th>
+                <th id = "autoEnd">Год окончания выпуска</th>
+			</tr>
+            {% for car in cars %}
+			    <tr>
+				    <td>{{ car.id }}</td>
+				    <td>{{ car.name }}</td>
+                    <td>{{ car.producer.name }}</td>
+                    <td>{{ car.start_year }}</td>
+                    {% if car.end_year == NULL %}
+                        <td>—</td>
+                    {% else %}
+                        <td>{{ car.end_year }}</td>
+                    {% endif %}
+			    </tr>
+            {% endfor %}
+		</table>
+	</section>
+    
+    <section>
+        <table id = "TableComment" class="table">
+		    <caption>Комментарий</caption>
+		    <tr>
+		    	<th id = "commentId">id</th>
+		    	<th id = "email">Email</th>
+                <th id = "commentAuto">Автомобиль</th>
+                <th id = "commentDate">Дата создания</th>
+                <th id = "comment">Комментарий</th>
+		    </tr>
+            {% for comment in comments %}
+		        <tr>
+		    	    <td>{{ comment.id }}</td>
+		    	    <td>{{ comment.email }}</td>
+                    <td>{{ comment.auto.name }}</td>
+                    <td>{{ comment.date_comment }}</td>
+                    <td>{{ comment.comment }}</td>
+		        </tr>
+            {% endfor %}
+		</table>
+	</section>
+
+</body>
+</html>

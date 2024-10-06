@@ -1,0 +1,197 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+/* Заголовок таблицы */
+caption {
+  margin-top: 150px;
+  font-family: segoe print;
+  font-weight: bold;
+  font-size: 2em;
+  padding: 10px;
+  color: #B558FF;
+  text-shadow: 1px 1px 0 rgba(0,0,0,.3);
+  border: 1px solid #B558FF;
+}
+
+.container {
+            display: flex;          /* Горизонтальное распололожение (таблица-форма) */
+        }
+.table-container {
+            margin-right: 20px;    /* Отступ справа для разделения */
+        }
+.form-container {
+  padding: 10px;
+  margin-top: 150px;
+}
+
+table {
+  margin: auto;
+}
+
+/* Оформление заголовков столбцов */
+th {
+  font-family: segoe print;
+  padding: 10px;
+  font-weight: bold;
+  color: #B558FF;
+  border: 1px solid #B558FF;
+  text-align:center;
+}
+
+/* Оформление ячеек */
+td {
+  font-family: segoe print;
+  font-weight: bold;
+  font-size: 0.8em;
+  padding: 5px 7px;
+  color: #000000;
+  border: 1px solid #B558FF;
+  text-align:center;
+}
+
+/* Изменение цвета нечётных строк таблицы */
+.changeColor{
+  background-color: #E6E6FA;
+}
+
+/* Изменение цвета строки 1, строки 2 и т.д. */
+.changeForeColor{
+  color: #B558FF;
+}
+
+/* Изменение заголовка второго уровня */
+h2{
+  font-family: 'Niconne', cursive;
+  font-size: 2em;
+  padding: 10px;
+  text-shadow: 1px 1px 0 rgba(0,0,0,.3);
+}
+
+/* Изменение текста в форме, абзаце и подвале */
+p, form, footer {
+  font-family: 'Niconne', cursive;
+  font-size: 20px;
+  padding: 10px;
+  text-shadow: 1px 1px 0 rgba(0,0,0,.3);
+}
+
+/* Основной цвет задника на сайте */
+body {
+  background: #F8F8FF;
+  color: #B558FF;
+}
+
+/* Кнопка отправить данные */
+.shine-button {
+  text-decoration: none;
+  display: inline-block;
+  padding: 10px 30px;
+  margin: 10px 20px;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid #B558FF;
+  border-radius: 8px;
+  font-family: 'Montserrat', sans-serif;
+  color: #B558FF;
+  transition: .2s ease-in-out;
+}
+
+/* Кнопка отправить данные до наведения */
+.shine-button:before {
+  content: "";
+  background: linear-gradient(90deg, rgba(255, 255, 255, .1), rgba(255, 255, 255, .5));
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  top: -8px;
+  left: -75px;
+  transform: skewX(-45deg);
+}
+
+.shine-button:hover {
+  background: #B558FF;
+  color: #fff;
+  cursor: pointer;
+}
+
+.shine-button:hover:before {
+  left: 150px;
+  transition: .5s ease-in-out;
+}
+
+/* Настройка меню */
+.menu-main {
+  position: fixed;
+  width: 100%;
+  display: table;
+  /*background: linear-gradient(45deg, #F8F8FF, #B558FF);*/
+  background: #B558FF;
+}
+
+ul {
+  list-style: none; /* убираем маркеры списка */
+  margin: 0; /* убираем отступы */
+  padding-left: 0; /* убираем отступы */
+  padding-bottom: 0;
+  background: #B558FF; /* добавляем фон всему меню */
+
+  height: 50px; /* задаем высоту */
+}
+
+a {
+  text-decoration: none; /* убираем подчеркивание текста ссылок*/
+  /*background:#B558FF; /* фон к каждому пункту меню*/
+  color:#fff; /* меняем цвет ссылок */
+  padding:0px 15px; /* добавляем отступ */
+  font-family: arial; /* меняем шрифт */
+  line-height:50px; /* ровняем меню по вертикали */
+  display: block;
+  border-right: 1px solid #FFFFFF; /* добавляем бордюр справа */
+  -moz-transition: all 0.3s 0.01s ease; /* делаем плавный переход */
+  -o-transition: all 0.3s 0.01s ease;
+  -webkit-transition: all 0.3s 0.01s ease;
+}
+a:hover {
+  background:#D43737;/* добавляем эффект при наведении */
+}
+.menu-main li {
+  float:left; /* Размещаем список горизонтально для реализации меню */
+}
+
+/* Настройка полей ввода */
+.textBox {
+  border-radius: 5px 5px 5px 5px; /* Закругляем уголки */
+  width: 350px;
+}
+
+nav .submenu {
+		  position: absolute;
+		  top: 100%;
+		  left: 0;
+		  background: #B558FF;
+		  border: 1px solid #ccc;
+		  border-top: none;
+		  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+		  z-index: 1;
+		  min-width: 10rem;
+		  padding: 0.5rem 0;
+		  display: none;
+		}
+
+nav .submenu li {
+  display: block;
+}
+
+nav .submenu a {
+  padding: 0.5rem 1rem;
+}
+
+nav .submenu li:first-child a {
+  border-top: none;
+}
+
+nav li:hover .submenu {
+  display: block;
+}
